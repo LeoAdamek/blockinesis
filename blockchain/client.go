@@ -66,6 +66,18 @@ func (c *Client) WatchTransactions(transactions chan Transaction, errors chan er
 				errors <- err
 			}
 
+			if len(t.Inputs) > 0 {
+				t.Value = t.Inputs[0].Out.Value
+				t.ValueBTC = float64(t.Value) / 1e9
+				
+				t.From = t.Inputs[0].Out.Address
+			}
+			
+			if len(t.Outputs) > 0 {
+				t.To = t.Outputs[0].Address
+			}
+			
+			
 			transactions <- t
 		}
 	}

@@ -25,7 +25,7 @@ type Transaction struct {
 	Timestamp int `json:"time"`
 	Index int64 `json:"tx_index"`
 	VinSize int64 `json:"vin_sz"`
-	Hash string `json:"hash"`
+	Hash string `json:"hash" dynamo:"hash"`
 	RelayedBy string `json:"relayed_by"`
 
 	Outputs []struct {
@@ -36,6 +36,14 @@ type Transaction struct {
 		Value int64 `json:"value"`
 		Script string `json:"script"`
 	} `json:"outputs"`
+	
+	/* Pseudo values to surface important data */
+	
+	Value int64 `json:"value" dynamo:"value"`
+	ValueBTC float64 `dynamo:"value_btc"`
+	
+	From string
+	To string
 }
 
 
