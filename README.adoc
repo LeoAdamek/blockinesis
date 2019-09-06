@@ -1,0 +1,9 @@
+= Blockinesis
+
+Streams Bitcoin transactions from the blockchain into AWS Kinesis in realtime. 
+A useful source of test data for kinesis. 
+
+You can hook this up to Kinesis Analytics to do realtime analytics of bitcoin trainsactions too.
+
+
+NOTE: This application will incur fees from AWS all the time the Kinesis stream is alive.
